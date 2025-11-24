@@ -9,6 +9,11 @@ const DogSchema = new mongoose.Schema({
     trim: true,
     unique: true,
   },
+  breed: {
+    type: String,
+    required: true,
+    trim: true,
+  },
 });
 
 DogModel = mongoose.model('Dog', DogSchema);
