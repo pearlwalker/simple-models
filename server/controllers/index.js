@@ -43,6 +43,10 @@ const hostPage3 = (req, res) => {
   res.render('page3');
 };
 
+const hostPage4 = (req, res) => {
+  res.render('page4');
+};
+
 const getName = async (req, res) => {
   try {
     const doc = await Cat.findOne({}).sort({ createdDate: 'descending' }).lean().exec();
@@ -132,6 +136,7 @@ module.exports = {
   page1: hostPage1,
   page2: hostPage2,
   page3: hostPage3,
+  page4: hostPage4,
   getName,
   setName,
   updateLast,
