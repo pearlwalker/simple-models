@@ -122,7 +122,6 @@ const updateLast = (req, res) => {
   });
 };
 const createDog = async (req, res) => {
-  console.log(req, res);
   if (!req.body.name || !req.body.breed || !req.body.age) {
     return res.status(400).json({ error: 'Name, Breed, and Age are all required' });
   }
