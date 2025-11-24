@@ -117,6 +117,10 @@ const updateLast = (req, res) => {
   });
 };
 
+const getDog = async (req, res) => {
+  console.log(req, res);
+};
+
 const notFound = (req, res) => {
   res.status(404).render('notFound', {
     page: req.url,
@@ -133,4 +137,5 @@ module.exports = {
   updateLast,
   searchName,
   notFound,
+  getDog,
 };
