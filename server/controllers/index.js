@@ -1,6 +1,7 @@
 const models = require('../models');
 
 const { Cat } = models;
+const { Dog } = models;
 
 const hostIndex = async (req, res) => {
   let name = 'unknown';
