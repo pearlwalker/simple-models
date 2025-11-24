@@ -131,6 +131,8 @@ const createDog = async (req, res) => {
     breed: req.body.breed,
     age: req.body.age,
   };
+
+  const newDog = new Dog(dogData);
 };
 
 const ageDog = async (req, res) => {
