@@ -120,6 +120,9 @@ const updateLast = (req, res) => {
     return res.status(500).json({ error: 'Something went wrong' });
   });
 };
+const createDog = async (req, res) => {
+  console.log(req, res);
+};
 
 const getDog = async (req, res) => {
   console.log(req, res);
@@ -143,4 +146,5 @@ module.exports = {
   searchName,
   notFound,
   getDog,
+  createDog,
 };
