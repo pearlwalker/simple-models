@@ -135,6 +135,11 @@ const createDog = async (req, res) => {
   const newDog = new Dog(dogData);
   try {
     await newDog.save();
+    return res.status(201).json({
+      name: newDog.name,
+      breed: newDog.breed,
+      age: newDog.age,
+    });
   } catch (err) {
     console.log(err);
     return res.status(500).json({ error: 'Failed to create dog' });
