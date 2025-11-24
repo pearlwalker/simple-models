@@ -156,6 +156,11 @@ const ageDog = async (req, res) => {
     breed: doc.breed,
     age: doc.age,
   }));
+
+  updatePromise.catch((err) => {
+    console.log(err);
+    return res.status(500).json({ error: 'Something went wrong' });
+  });
 };
 
 const notFound = (req, res) => {
