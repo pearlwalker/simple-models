@@ -19,6 +19,10 @@ const DogSchema = new mongoose.Schema({
     required: true,
     min: 0,
   },
+  createdDate: {
+    type: Date,
+    default: Date.now,
+  },
 });
 
 DogModel = mongoose.model('Dog', DogSchema);
