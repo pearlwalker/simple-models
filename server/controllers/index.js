@@ -133,6 +133,11 @@ const createDog = async (req, res) => {
   };
 
   const newDog = new Dog(dogData);
+  try {
+    console.log(newDog);
+  } catch (err) {
+    console.log(err);
+  };
 };
 
 const ageDog = async (req, res) => {
