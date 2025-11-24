@@ -124,7 +124,7 @@ const createDog = async (req, res) => {
   console.log(req, res);
 };
 
-const getDog = async (req, res) => {
+const ageDog = async (req, res) => {
   console.log(req, res);
 };
 
@@ -145,6 +145,6 @@ module.exports = {
   updateLast,
   searchName,
   notFound,
-  getDog,
+  ageDog,
   createDog,
 };
