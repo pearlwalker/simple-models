@@ -15,6 +15,8 @@ const router = (app) => {
   app.post('/setName', controllers.setName);
 
   app.post('/updateLast', controllers.updateLast);
+
+  app.post('/createDog', controllers.createDog);
 };
 
 module.exports = router;
