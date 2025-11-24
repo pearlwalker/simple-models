@@ -146,7 +146,7 @@ const createDog = async (req, res) => {
 };
 
 const ageDog = async (req, res) => {
-  console.log(req, res);
+  
   const updatePromise = Dog.findOneAndUpdate({ name: req.query.getDog }, { $inc: { age: 1 } }, {
     returnDocument: 'after',
     sort: { createdDate: 'descending' },
