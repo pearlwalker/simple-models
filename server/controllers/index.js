@@ -48,7 +48,8 @@ const hostPage4 = async (req, res) => {
   try {
     const docs = await Dog.find({}).lean().exec();
   } catch (err) {
-
+    console.log(err);
+    return res.status(500).json({ error: 'failed to find dogs' });
   }
   // res.render('page4');
 };
