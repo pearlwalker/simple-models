@@ -164,7 +164,23 @@ const ageDog = async (req, res) => {
 };
 
 const getDog = async (req, res) => {
+  if (!req.query.name) {
+    return res.status(400).json({ error: 'Name is required to perform a search' });
+  }
 
+  let doc;
+  try {
+    doc = await Dog.findOne({ name: req.query.name }).exec();
+  } catch (err) {
+    console.log(err);
+    return res.status(500).json({ error: 'Something went wrong' });
+  }
+
+  if (!doc) {
+    return res.status(404).json({ error: 'No dogs found' });
+  }
+
+  return res.json({ name: doc.name, breed: doc.breed, age: doc.age });
 };
 const notFound = (req, res) => {
   res.status(404).render('notFound', {
