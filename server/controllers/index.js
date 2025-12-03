@@ -44,8 +44,13 @@ const hostPage3 = (req, res) => {
   res.render('page3');
 };
 
-const hostPage4 = (req, res) => {
-  res.render('page4');
+const hostPage4 = async (req, res) => {
+  try {
+    const docs = await Dog.find({}).lean().exec();
+  } catch (err) {
+
+  }
+  // res.render('page4');
 };
 
 const getName = async (req, res) => {
