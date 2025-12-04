@@ -162,13 +162,13 @@ const ageDog = async (req, res) => {
 
   updatePromise.then((doc) => {
     if (!doc) {
-      return res.status(404).json({ error: 'No dog found' })
+      return res.status(404).json({ error: 'No dog found' });
     }
-    res.json({
+    return res.json({
       name: doc.name,
       breed: doc.breed,
       age: doc.age,
-    })
+    });
   });
 
   updatePromise.catch((err) => {
