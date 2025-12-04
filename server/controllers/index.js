@@ -156,6 +156,17 @@ const ageDog = async (req, res) => {
   if (!req.body.searchDog) {
     return res.status(400).json({ error: 'Name is required' });
   }
+
+  let doc
+  try {
+    doc = await Dog.findOneAndUpdate({ name: req.body.searchDog }, { $inc: { age: 1 } }, {
+      returnDocument: 'after',
+    }).lean().exec();
+  } catch (err) {
+    console.log(err);
+    return res.status(500).json({ error: 'Something went wrong; could not find dog' });
+
+  }
   const updatePromise = Dog.findOneAndUpdate({ name: req.body.searchDog }, { $inc: { age: 1 } }, {
     returnDocument: 'after',
   }).lean().exec();
