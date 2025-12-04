@@ -148,7 +148,7 @@ const createDog = async (req, res) => {
     });
   } catch (err) {
     console.log(err);
-    return res.status(500).json({ error: 'Failed to create dog' });
+    return res.status(500).json({ error: 'Failed to create dog or Dog already exists' });
   }
 };
 
