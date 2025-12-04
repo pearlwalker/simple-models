@@ -157,7 +157,7 @@ const ageDog = async (req, res) => {
     return res.status(400).json({ error: 'Name is required' });
   }
 
-  let doc
+  let doc;
   try {
     doc = await Dog.findOneAndUpdate({ name: req.body.searchDog }, { $inc: { age: 1 } }, {
       returnDocument: 'after',
