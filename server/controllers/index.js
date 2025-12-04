@@ -165,26 +165,14 @@ const ageDog = async (req, res) => {
   } catch (err) {
     console.log(err);
     return res.status(500).json({ error: 'Something went wrong; could not find dog' });
-
   }
-  const updatePromise = Dog.findOneAndUpdate({ name: req.body.searchDog }, { $inc: { age: 1 } }, {
-    returnDocument: 'after',
-  }).lean().exec();
-
-  updatePromise.then((doc) => {
-    if (!doc) {
-      return res.status(404).json({ error: 'No dog found' });
-    }
-    return res.json({
-      name: doc.name,
-      breed: doc.breed,
-      age: doc.age,
-    });
-  });
-
-  updatePromise.catch((err) => {
-    console.log(err);
-    return res.status(500).json({ error: 'Something went wrong; could not find dog' });
+  if (!doc) {
+    return res.status(404).json({ error: 'No dog found' });
+  }
+  return res.json({
+    name: doc.name,
+    breed: doc.breed,
+    age: doc.age,
   });
 };
 
