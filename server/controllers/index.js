@@ -153,6 +153,9 @@ const createDog = async (req, res) => {
 };
 
 const ageDog = async (req, res) => {
+  if (!req.body.searchDog) {
+    return res.status(400).json({ error: 'Name is required' });
+  }
   const updatePromise = Dog.findOneAndUpdate({ name: req.body.searchDog }, { $inc: { age: 1 } }, {
     returnDocument: 'after',
   }).lean().exec();
