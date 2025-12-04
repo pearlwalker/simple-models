@@ -153,7 +153,7 @@ const createDog = async (req, res) => {
 };
 
 const ageDog = async (req, res) => {
-  const updatePromise = Dog.findOneAndUpdate({ name: req.query.searchDog }, { $inc: { age: 1 } }, {
+  const updatePromise = Dog.findOneAndUpdate({  }, { $inc: { age: 1 } }, {
     returnDocument: 'after',
     sort: { createdDate: 'descending' },
   }).lean().exec();
